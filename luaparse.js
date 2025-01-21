@@ -128,10 +128,12 @@
 
   function checkChars(rx) {
     return function (s) {
-      var m = rx.exec(s);
-      if (!m)
-        return s;
-      raise(null, errors.invalidCodeUnit, toHex(m[0].charCodeAt(0), 4).toUpperCase());
+      // Marcus Tillmanns: Remove the check, otherwise unicode characters are not allowed for no reason.
+      return s;
+      //var m = rx.exec(s);
+      //if (!m)
+      //  return s;
+      //raise(null, errors.invalidCodeUnit, toHex(m[0].charCodeAt(0), 4).toUpperCase());
     };
   }
 
